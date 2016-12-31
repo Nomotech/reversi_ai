@@ -59,8 +59,8 @@ document.onkeydown = function (e){
   if(key[65]==1){
   	ai();
   	field_click(answer.x,answer.y);
-	console.log("answer x:" + answer.x + " y:" + answer.y + " score:" + answer.max_score);
-	update();
+    console.log("answer x:" + answer.x + " y:" + answer.y + " score:" + answer.max_score);
+	 update();
   }
   if(key[83]==1){
   	ai();
@@ -166,8 +166,15 @@ function update(){
 
 
 
-document.getElementById("next").addEventListener("click",function(){
-	ai();
+document.getElementById("ai").addEventListener("click",function(){
+  ai();
+  field_click(answer.x,answer.y);
+  console.log("answer x:" + answer.x + " y:" + answer.y + " score:" + answer.max_score);
+  update();
+});
+document.getElementById("sc").addEventListener("click",function(){
+  ai();
+  score_draw();
 });
 
 function turn_change(){
