@@ -1,4 +1,5 @@
 var answer = {};
+answer.totalscore = {};
 answer.able_min = {};
 answer.turn_min = {};
 answer.turn_max = {};
@@ -30,18 +31,19 @@ for(i=0;i<row;i++) answer.po[i] = new Array(column);
 /*
 answer.po = [
 	[0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0],
-	[0.0 , 1.0 , 0.2 , 0.5 , 0.5 , 0.5 , 0.5 , 0.2 , 1.0 , 0.0],
-	[0.0 , 0.2 , 0.1 , 0.4 , 0.6 , 0.6 , 0.4 , 0.1 , 0.2 , 0.0],
-	[0.0 , 0.5 , 0.4 , 0.8 , 0.7 , 0.7 , 0.8 , 0.4 , 0.5 , 0.0],
-	[0.0 , 0.5 , 0.6 , 0.7 , 0.8 , 0.8 , 0.7 , 0.6 , 0.5 , 0.0],
-	[0.0 , 0.5 , 0.6 , 0.7 , 0.8 , 0.8 , 0.7 , 0.6 , 0.5 , 0.0],
-	[0.0 , 0.5 , 0.4 , 0.8 , 0.7 , 0.7 , 0.8 , 0.4 , 0.5 , 0.0],
-	[0.0 , 0.2 , 0.1 , 0.4 , 0.6 , 0.6 , 0.4 , 0.1 , 0.2 , 0.0],
-	[0.0 , 1.0 , 0.2 , 0.5 , 0.5 , 0.5 , 0.5 , 0.2 , 1.0 , 0.0],
+	[0.0 , 1.0 , 0.2 , 0.8 , 0.7 , 0.7 , 0.8 , 0.2 , 1.0 , 0.0],
+	[0.0 , 0.2 , 0.1 , 0.5 , 0.5 , 0.5 , 0.5 , 0.1 , 0.2 , 0.0],
+	[0.0 , 0.8 , 0.5 , 0.8 , 0.7 , 0.7 , 0.8 , 0.5 , 0.5 , 0.0],
+	[0.0 , 0.7 , 0.5 , 0.7 , 0.7 , 0.7 , 0.7 , 0.5 , 0.5 , 0.0],
+	[0.0 , 0.7 , 0.5 , 0.7 , 0.7 , 0.7 , 0.7 , 0.5 , 0.5 , 0.0],
+	[0.0 , 0.8 , 0.5 , 0.8 , 0.7 , 0.7 , 0.8 , 0.5 , 0.5 , 0.0],
+	[0.0 , 0.2 , 0.1 , 0.5 , 0.5 , 0.5 , 0.5 , 0.1 , 0.2 , 0.0],
+	[0.0 , 1.0 , 0.2 , 0.8 , 0.7 , 0.7 , 0.8 , 0.2 , 1.0 , 0.0],
 	[0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0]
 ];
 */
 
+/*
 answer.po = [
 	[0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0],
 	[0.0 , 1.0 , 0.2 , 0.5 , 0.5 , 0.5 , 0.5 , 0.2 , 1.0 , 0.0],
@@ -54,7 +56,22 @@ answer.po = [
 	[0.0 , 1.0 , 0.2 , 0.5 , 0.5 , 0.5 , 0.5 , 0.2 , 1.0 , 0.0],
 	[0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0]
 ];
- 
+*/
+
+
+answer.po = [
+    [0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0],
+    [0.0 , 3.0 ,-1.2 , 0.0 ,-0.1 ,-0.1 , 0.0 ,-1.2 , 3.0 , 0.0],
+    [0.0 ,-1.2 ,-1.5 ,-0.3 ,-0.3 ,-0.3 ,-0.3 ,-1.5 ,-1.2 , 0.0],
+    [0.0 , 0.0 ,-0.3 , 0.0 ,-0.1 ,-0.1 , 0.0 ,-0.3 , 0.0 , 0.0],
+    [0.0 ,-0.1 ,-0.3 ,-0.1 ,-0.1 ,-0.1 ,-0.1 ,-0.3 ,-0.1 , 0.0],
+    [0.0 ,-0.1 ,-0.3 ,-0.1 ,-0.1 ,-0.1 ,-0.1 ,-0.3 ,-0.1 , 0.0],
+    [0.0 , 0.0 ,-0.3 , 0.0 ,-0.1 ,-0.1 , 0.0 ,-0.3 , 0.0 , 0.0],
+    [0.0 ,-1.2 ,-1.5 ,-0.3 ,-0.3 ,-0.3 ,-0.3 ,-1.5 ,-1.2 , 0.0],
+    [0.0 , 1.0 ,-1.2 , 0.0 ,-0.1 ,-0.1 , 0.0 ,-1.2 , 3.0 , 0.0],
+    [0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0 , 0.0]
+];
+
 
 
 
@@ -82,11 +99,11 @@ function ai(){
 	po_black_num = black_num;
 	po_white_num = white_num;
 
-	answer.max_score = 0;
+	answer.max_score = -row*column*10;
 	answer.able_min.point = row*column;
 	answer.turn_min.point = row*column;
 	answer.turn_max.point = 0;
-
+    answer.totalscore.score = -row*column;
 	for(i=1;i<row-1;i++){
         for(j=1;j<column-1;j++){
         	if(field[i][j]==3) ai_try(i,j);
@@ -100,15 +117,13 @@ function ai(){
 
 	for(i=1;i<row-1;i++){
         for(j=1;j<column-1;j++){
-            if(answer.field[i][j]>answer.max_score){
+            if(field[i][j] == 3 && answer.field[i][j]>answer.max_score){
                 answer.max_score = answer.field[i][j];
                 answer.x = i;
                 answer.y = j;
             }
         }
     }
-	
-	
 }
 
 function ai_try(x,y){
@@ -118,40 +133,61 @@ function ai_try(x,y){
 		}
 	}   
 	turn_num = 0;
+    var totalscore_b = 0;
+    var totalscore_w = 0;
+    var totalscore_sub = 0;
 	field_copy[x][y]=reversi_color;
+
 	reversi_serch_try(x,y);
  	turn_change_try();
    	field_check_try();
    	count_try();
 
+
+    for(i=1;i<row-1;i++){
+        for(j=1;j<column-1;j++){
+            if(field_copy[i][j]==1) totalscore_b += answer.po[i][j];
+            if(field_copy[i][j]==2) totalscore_w += answer.po[i][j];
+        }
+    }
+    totalscore_sub = totalscore_b - totalscore_w;
+    if(reversi_color==1)totalscore_sub*=-1;
+    if(totalscore_sub > answer.totalscore.score){
+        answer.totalscore.x = x;
+        answer.totalscore.y = y;
+        answer.totalscore.score = totalscore_sub;
+    }
+    console.log("totalscore" + totalscore_sub);
    	//相手のおける場所が最小
    	//console.log("x:" + x + " y:" + y + " able:" + able_num);
-   	if(able_num<=answer.able_min.point){
-   		answer.able_min.x = x;
-		answer.able_min.y = y;
-		answer.able_min.point = able_num;
-   	}
+  //  	if(able_num<=answer.able_min.point){
+  //  		answer.able_min.x = x;
+		// answer.able_min.y = y;
+		// answer.able_min.point = able_num;
+  //  	}
 
    	
-   	if(reversi_color!=1)turn_num = black_num - po_black_num;
-   	if(reversi_color!=2)turn_num = white_num - po_black_num;
-   	//ひっくり返る石の数が最小
-   	if(turn_num < answer.turn_min.point){
-   		answer.turn_min.x = x;
-   		answer.turn_min.y = y;
-   		answer.turn_min.point = turn_num;
-   	}
+  //  	if(reversi_color!=1)turn_num = black_num - po_black_num;
+  //  	if(reversi_color!=2)turn_num = white_num - po_black_num;
+  //  	//ひっくり返る石の数が最小
+  //  	if(turn_num < answer.turn_min.point){
+  //  		answer.turn_min.x = x;
+  //  		answer.turn_min.y = y;
+  //  		answer.turn_min.point = turn_num;
+  //  	}
 
-   	//ひっくり返る石の数が最大
-   	if(turn_num > answer.turn_max.point){
-   		answer.turn_max.x = x;
-   		answer.turn_max.y = y;
-   		answer.turn_max.point = turn_num;
-   	}
+  //  	//ひっくり返る石の数が最大
+  //  	if(turn_num > answer.turn_max.point){
+  //  		answer.turn_max.x = x;
+  //  		answer.turn_max.y = y;
+  //  		answer.turn_max.point = turn_num;
+  //  	}
 
-   	//マスの得点
-   	answer.field[x][y] = 0;
-   	answer.field[x][y] += (row-2)*(column-2) - able_num;
+
+
+  //マスの得点
+  answer.field[x][y] = 0;
+  answer.field[x][y] += ((row-2)*(column-2) - able_num)*2;
 	if(turn<(row-2)*(column-2)-4-16){
 		answer.field[x][y] += (row-2)*(column-2) - turn_num;
 	}
@@ -160,7 +196,7 @@ function ai_try(x,y){
 	}
 	answer.field[x][y] += answer.po[x][y] * (row-2) * (column-2);
 
-
+    answer.field[x][y] += totalscore_sub * 10;
    	turn_change_try();
 }
 
@@ -304,7 +340,10 @@ function score_draw(){
     context.textAlign = 'start';
     for(i=1;i<row-1;i++){
     	for(j=1;j<column-1;j++){
-    		if(field[i][j]==3)context.fillText(answer.field[i][j],size*i,size*(j+1),50);
+    		if(field[i][j]==3)context.fillText(Math.floor(answer.field[i][j]),size*i,size*(j+1),50);
     	}
     }
+}
+
+function side_check(){
 }
